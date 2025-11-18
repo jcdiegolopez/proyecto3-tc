@@ -1,0 +1,170 @@
+# Archivo de pruebas para el Cifrado César con Máquinas de Turing
+# Formato: INPUT → OUTPUT_ESPERADO
+# Líneas que empiezan con # son comentarios
+
+# ========================================
+# PRUEBAS BÁSICAS - Desplazamientos pequeños
+# ========================================
+
+# Desplazamiento 1
+1#A → B
+1#Z → A
+1#HOLA → IPMB
+
+# Desplazamiento 3
+3#A → D
+3#Z → C
+3#HOLA → KROD
+3#ABC → DEF
+3#XYZ → ABC
+
+# Desplazamiento 5
+5#PERRO → UJWWT
+5#HELLO → MJQQT
+5#WORLD → BTWQI
+
+# ========================================
+# PRUEBAS DE CICLO (MOD 26) - Wraparound
+# ========================================
+
+# Desplazamiento que cruza de Z a A
+1#XYZ → YZA
+2#XYZ → ZAB
+3#XYZ → ABC
+5#VWX → ABC
+
+# Palabras que cruzan el límite
+ 10#TESTING → DOCDSXQ
+13#HELLO → URYYB
+ 15#ZEBRA → OTQGP
+
+# Desplazamiento grande (verifica mod 26)
+26#HOLA → HOLA
+27#HOLA → IPMB
+28#ABC → CDE
+30#TEST → XIWX
+
+# ========================================
+# PRUEBAS CON TODAS LAS LETRAS DEL ALFABETO
+# ========================================
+
+1#ABCDEFGHIJKLMNOPQRSTUVWXYZ → BCDEFGHIJKLMNOPQRSTUVWXYZA
+5#ABCDEFGHIJKLMNOPQRSTUVWXYZ → FGHIJKLMNOPQRSTUVWXYZABCDE
+13#ABCDEFGHIJKLMNOPQRSTUVWXYZ → NOPQRSTUVWXYZABCDEFGHIJKLM
+
+# ========================================
+# PRUEBAS CON DESPLAZAMIENTO 0 (Sin cambio)
+# ========================================
+
+0#HOLA → HOLA
+0#TESTING → TESTING
+0#ABCXYZ → ABCXYZ
+
+# ========================================
+# PRUEBAS CON LETRAS INDIVIDUALES
+# ========================================
+
+# Verificar cada letra en los extremos
+1#A → B
+1#B → C
+1#Y → Z
+1#Z → A
+
+5#A → F
+5#V → A
+5#W → B
+5#Z → E
+
+# ========================================
+# PRUEBAS CON PALABRAS COMUNES
+# ========================================
+
+3#COMPUTADORA → FRPSXWDGRUD
+7#UNIVERSIDAD → BUPCLYZPKHK
+ 10#PROGRAMACION → ZBYQBKWKMSYX
+
+# ========================================
+# PRUEBAS DE LONGITUD VARIABLE
+# ========================================
+
+# Palabra de 1 letra
+5#A → F
+5#Z → E
+
+# Palabra de 2 letras
+5#AB → FG
+5#ZZ → EE
+
+# Palabra de 3 letras
+5#ABC → FGH
+5#XYZ → CDE
+
+# Palabra de 10 letras
+5#ABCDEFGHIJ → FGHIJKLMNO
+
+# Palabra de 15 letras
+3#ABCDEFGHIJKLMNO → DEFGHIJKLMNOPQR
+
+# ========================================
+# PRUEBAS DE CASOS EXTREMOS DEL CICLO
+# ========================================
+
+# Todas Z
+1#ZZZ → AAA
+5#ZZZZ → EEEE
+13#ZZ → MM
+
+# Mezcla en el borde
+1#XYZA → YZAB
+5#VWXYZ → ABCDE
+10#PQRSTUVWXYZ → ZABCDEFGHIJ
+
+# Desplazamiento completo del alfabeto
+13#NOPQRSTUVWXYZ → ABCDEFGHIJKLM
+
+# ========================================
+# PRUEBAS PARA VERIFICAR SIMETRÍA
+# ========================================
+
+# Si desplazamos N y luego 26-N, debemos volver al original
+# Por ejemplo: desplazar 3 luego 23 = original
+# (Estas se deben probar manualmente en dos pasos)
+
+3#SIMETRIA → VLPHWULD
+7#PRUEBA → WYBLIH
+13#CODIGO → PBQVTB
+
+# ========================================
+# PRUEBAS CON DESPLAZAMIENTOS MAYORES A 26
+# ========================================
+
+# Desplazamiento 27 = desplazamiento 1 (mod 26)
+27#HOLA → IPMB
+28#ABC → CDE
+29#XYZ → ABC
+
+# Desplazamiento 52 = desplazamiento 0 (mod 26)
+52#TEST → TEST
+
+# Desplazamiento 100 = desplazamiento 22 (mod 26)
+100#ABCD → WXYZ
+
+# ========================================
+# PRUEBAS ESPECIALES - Patrones
+# ========================================
+
+# Letras repetidas
+5#AAA → FFF
+ 5#AAABBBCCC → FFFGGGHHH
+
+# Patrón ascendente
+1#ABCDEFG → BCDEFGH
+3#ABCDEFG → DEFGHIJ
+
+# Patrón descendente
+1#ZYXWVU → AZYXWV
+ 5#ZYXWVU → EDCBAZ
+
+# ========================================
+# TOTAL: ~80 casos de prueba
+# ========================================
