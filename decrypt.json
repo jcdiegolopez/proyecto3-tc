@@ -11,6 +11,9 @@
     "q_rewind_tape2",
     "q_find_marker_or_pipe",
     "q_rewind_tape4",
+    "q_find_wrap_to_A",
+    "q_wrap_backward_to_Z_scan",
+    "q_wrap_backward_to_Z_finish",
     "q_accept"
   ],
   "Sigma": [
@@ -1160,6 +1163,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "A,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "A,*,*,*": {
         "write": [
           "*",
@@ -1204,6 +1222,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "B,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "B,*,*,*": {
         "write": [
@@ -1250,6 +1283,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "C,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "C,*,*,*": {
         "write": [
           "*",
@@ -1294,6 +1342,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "D,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "D,*,*,*": {
         "write": [
@@ -1340,6 +1403,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "E,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "E,*,*,*": {
         "write": [
           "*",
@@ -1384,6 +1462,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "F,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "F,*,*,*": {
         "write": [
@@ -1430,6 +1523,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "G,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "G,*,*,*": {
         "write": [
           "*",
@@ -1474,6 +1582,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "H,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "H,*,*,*": {
         "write": [
@@ -1520,6 +1643,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "I,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "I,*,*,*": {
         "write": [
           "*",
@@ -1564,6 +1702,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "J,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "J,*,*,*": {
         "write": [
@@ -1610,6 +1763,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "K,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "K,*,*,*": {
         "write": [
           "*",
@@ -1654,6 +1822,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "L,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "L,*,*,*": {
         "write": [
@@ -1700,6 +1883,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "M,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "M,*,*,*": {
         "write": [
           "*",
@@ -1744,6 +1942,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "N,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "N,*,*,*": {
         "write": [
@@ -1790,6 +2003,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "O,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "O,*,*,*": {
         "write": [
           "*",
@@ -1834,6 +2062,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "P,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "P,*,*,*": {
         "write": [
@@ -1880,6 +2123,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "Q,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "Q,*,*,*": {
         "write": [
           "*",
@@ -1924,6 +2182,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "R,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "R,*,*,*": {
         "write": [
@@ -1970,6 +2243,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "S,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "S,*,*,*": {
         "write": [
           "*",
@@ -2014,6 +2302,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "T,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "T,*,*,*": {
         "write": [
@@ -2060,6 +2363,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "U,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "U,*,*,*": {
         "write": [
           "*",
@@ -2104,6 +2422,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "V,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "V,*,*,*": {
         "write": [
@@ -2150,6 +2483,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "W,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "W,*,*,*": {
         "write": [
           "*",
@@ -2194,6 +2542,21 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "X,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
       },
       "X,*,*,*": {
         "write": [
@@ -2240,6 +2603,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "Y,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "Y,*,*,*": {
         "write": [
           "*",
@@ -2285,6 +2663,21 @@
         ],
         "next_state": "q_read_shifted"
       },
+      "Z,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
       "Z,*,*,*": {
         "write": [
           "*",
@@ -2301,8 +2694,8 @@
         "next_state": "q_find_in_alphabet"
       }
     },
-    "q_check_counter": {
-      "*,|,*,*": {
+    "q_find_wrap_to_A": {
+      "*,*,*,_": {
         "write": [
           "*",
           "*",
@@ -2311,12 +2704,404 @@
         ],
         "move": [
           "S",
-          "R",
+          "S",
           "S",
           "L"
         ],
-        "next_state": "q_check_counter"
+        "next_state": "q_find_wrap_to_A"
       },
+      "*,*,*,B": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,C": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,D": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,E": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,F": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,G": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,H": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,I": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,J": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,K": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,L": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,M": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,N": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,O": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,P": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,Q": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,R": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,S": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,T": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,U": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,V": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,W": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,X": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,Y": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,Z": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_find_wrap_to_A"
+      },
+      "*,*,*,A": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_find_in_alphabet"
+      }
+    },
+    "q_check_counter": {
       "*,_,*,*": {
         "write": [
           "*",
@@ -2331,6 +3116,820 @@
           "S"
         ],
         "next_state": "q_read_shifted"
+      },
+      "*,|,*,B": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,C": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,D": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,E": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,F": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,G": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,H": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,I": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,J": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,K": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,L": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,M": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,N": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,O": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,P": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,Q": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,R": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,S": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,T": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,U": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,V": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,W": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,X": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,Y": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,Z": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "L"
+        ],
+        "next_state": "q_check_counter"
+      },
+      "*,|,*,A": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "R",
+          "S",
+          "S"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      }
+    },
+    "q_wrap_backward_to_Z_scan": {
+      "*,*,*,A": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,B": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,C": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,D": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,E": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,F": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,G": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,H": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,I": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,J": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,K": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,L": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,M": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,N": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,O": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,P": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,Q": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,R": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,S": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,T": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,U": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,V": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,W": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,X": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,Y": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,Z": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "R"
+        ],
+        "next_state": "q_wrap_backward_to_Z_scan"
+      },
+      "*,*,*,_": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "L"
+        ],
+        "next_state": "q_wrap_backward_to_Z_finish"
+      }
+    },
+    "q_wrap_backward_to_Z_finish": {
+      "*,*,*,Z": {
+        "write": [
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "move": [
+          "S",
+          "S",
+          "S",
+          "S"
+        ],
+        "next_state": "q_check_counter"
       }
     },
     "q_read_shifted": {

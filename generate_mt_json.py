@@ -13,8 +13,9 @@ def generate_encrypt_mt():
         "description": "Máquina de Turing de 4 cintas para Cifrado César - Encriptación",
         "Q": [
             "q0", "q_skip_key", "q_process_char", "q_find_in_alphabet",
-            "q_count_shift", "q_read_shifted", 
-            "q_rewind_tape2", "q_rewind_tape4", "q_accept"
+            "q_count_shift", "q_read_shifted",
+            "q_rewind_tape2", "q_rewind_tape4",
+            "q_find_wrap_to_A", "q_wrap_forward_to_A", "q_accept"
         ],
         "Sigma": list("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789# "),
         "Gamma": list("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789# |_"),
@@ -56,14 +57,49 @@ def generate_encrypt_mt():
         mt["delta"]["q_find_in_alphabet"][f"{letter},*,*,{letter}"] = {
             "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_count_shift"
         }
+        mt["delta"]["q_find_in_alphabet"][f"{letter},*,*,_"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_find_wrap_to_A"
+        }
         mt["delta"]["q_find_in_alphabet"][f"{letter},*,*,*"] = {
             "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "R"], "next_state": "q_find_in_alphabet"
         }
+
+    # Estado auxiliar: al buscar y llegar al final del alfabeto, rebobinar hasta 'A'
+    mt["delta"]["q_find_wrap_to_A"] = {}
+    mt["delta"]["q_find_wrap_to_A"]["*,*,*,_"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_find_wrap_to_A"
+    }
+    for letter in letters[1:]:
+        mt["delta"]["q_find_wrap_to_A"][f"*,*,*,{letter}"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_find_wrap_to_A"
+        }
+    mt["delta"]["q_find_wrap_to_A"]["*,*,*,A"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_find_in_alphabet"
+    }
     
     # Estado q_count_shift: contar | y avanzar en alfabeto SIN consumir los |
     mt["delta"]["q_count_shift"] = {
-        "*,|,*,*": {"write": ["*", "*", "*", "*"], "move": ["S", "R", "S", "R"], "next_state": "q_count_shift"},
         "*,_,*,*": {"write": ["*", "*", "*", "*"], "move": ["S", "L", "S", "S"], "next_state": "q_read_shifted"}
+    }
+    for letter in letters[:-1]:  # Todas excepto Z
+        mt["delta"]["q_count_shift"][f"*,|,*,{letter}"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "R", "S", "R"], "next_state": "q_count_shift"
+        }
+    mt["delta"]["q_count_shift"]["*,|,*,Z"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "R", "S", "S"], "next_state": "q_wrap_forward_to_A"
+    }
+
+    # Estado auxiliar: al desbordar en Z, rebobinar hasta A para lograr wrap-around
+    mt["delta"]["q_wrap_forward_to_A"] = {}
+    mt["delta"]["q_wrap_forward_to_A"]["*,*,*,_"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_wrap_forward_to_A"
+    }
+    for letter in letters[1:]:
+        mt["delta"]["q_wrap_forward_to_A"][f"*,*,*,{letter}"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_wrap_forward_to_A"
+        }
+    mt["delta"]["q_wrap_forward_to_A"]["*,*,*,A"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_count_shift"
     }
     
     # Estado q_read_shifted: leer letra desplazada
@@ -104,7 +140,8 @@ def generate_decrypt_mt():
         "Q": [
             "q0", "q_skip_key", "q_process_char", "q_prepare_counter",
             "q_find_in_alphabet", "q_check_counter",
-            "q_read_shifted", "q_rewind_tape2", "q_find_marker_or_pipe", "q_rewind_tape4", "q_accept"
+            "q_read_shifted", "q_rewind_tape2", "q_find_marker_or_pipe", "q_rewind_tape4",
+            "q_find_wrap_to_A", "q_wrap_backward_to_Z_scan", "q_wrap_backward_to_Z_finish", "q_accept"
         ],
         "Sigma": list("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789# "),
         "Gamma": list("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789# |_"),
@@ -159,16 +196,50 @@ def generate_decrypt_mt():
             "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_read_shifted"
         }
         # Si no es la letra correcta, avanzar en el alfabeto
+        mt["delta"]["q_find_in_alphabet"][f"{letter},*,*,_"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_find_wrap_to_A"
+        }
         mt["delta"]["q_find_in_alphabet"][f"{letter},*,*,*"] = {
             "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "R"], "next_state": "q_find_in_alphabet"
         }
+
+    # Estado auxiliar: rebobinar alfabeto al encontrar blancos
+    mt["delta"]["q_find_wrap_to_A"] = {}
+    mt["delta"]["q_find_wrap_to_A"]["*,*,*,_"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_find_wrap_to_A"
+    }
+    for letter in letters[1:]:
+        mt["delta"]["q_find_wrap_to_A"][f"*,*,*,{letter}"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_find_wrap_to_A"
+        }
+    mt["delta"]["q_find_wrap_to_A"]["*,*,*,A"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_find_in_alphabet"
+    }
     
     # Estado q_check_counter: verificar si quedan más | para contar (SIN consumir)
     mt["delta"]["q_check_counter"] = {
-        # Si hay otro |, continuar contando y retrocediendo en alfabeto
-        "*,|,*,*": {"write": ["*", "*", "*", "*"], "move": ["S", "R", "S", "L"], "next_state": "q_check_counter"},
         # Si llegamos al marcador _, leer la letra actual del alfabeto
         "*,_,*,*": {"write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_read_shifted"}
+    }
+    for letter in letters[1:]:
+        mt["delta"]["q_check_counter"][f"*,|,*,{letter}"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "R", "S", "L"], "next_state": "q_check_counter"
+        }
+    mt["delta"]["q_check_counter"]["*,|,*,A"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "R", "S", "S"], "next_state": "q_wrap_backward_to_Z_scan"
+    }
+
+    # Estados auxiliares: wrap hacia 'Z' cuando se intenta retroceder desde 'A'
+    mt["delta"]["q_wrap_backward_to_Z_scan"] = {}
+    for letter in letters:
+        mt["delta"]["q_wrap_backward_to_Z_scan"][f"*,*,*,{letter}"] = {
+            "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "R"], "next_state": "q_wrap_backward_to_Z_scan"
+        }
+    mt["delta"]["q_wrap_backward_to_Z_scan"]["*,*,*,_"] = {
+        "write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "L"], "next_state": "q_wrap_backward_to_Z_finish"
+    }
+    mt["delta"]["q_wrap_backward_to_Z_finish"] = {
+        "*,*,*,Z": {"write": ["*", "*", "*", "*"], "move": ["S", "S", "S", "S"], "next_state": "q_check_counter"}
     }
     
     # Estado q_read_shifted: leer letra desplazada y escribir en cinta 3

@@ -40,14 +40,13 @@ def prepare_tape_2_unary(key: str) -> str:
 
 def prepare_tape_4_alphabet() -> str:
     """
-    Genera el alfabeto repetido muchas veces para wrap-around
+    Genera el alfabeto base para wrap-around gestionado por transiciones
     
     Returns:
         String con alfabeto repetido
     """
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    # Repetir suficientes veces para manejar cualquier desplazamiento
-    return alphabet * 50
+    return alphabet
 
 
 def parse_input(input_str: str) -> tuple:
